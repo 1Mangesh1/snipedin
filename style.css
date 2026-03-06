@@ -45,6 +45,102 @@
 }
 
 /* ============================================================
+   LIGHT MODE OVERRIDES
+   ============================================================ */
+[data-theme="light"] {
+  --bg:        #F8FAFC;
+  --bg-alt:    #F1F5F9;
+  --card:      #FFFFFF;
+  --card-hover:#F1F5F9;
+
+  --border:        #E2E8F0;
+  --border-hover:  #CBD5E1;
+  --border-active: rgba(10, 102, 194, 0.4);
+
+  --accent-light:#0A66C2;
+  --accent-dim:  rgba(10, 102, 194, 0.08);
+  --accent-glow: rgba(10, 102, 194, 0.15);
+
+  --text:       #0F172A;
+  --text-sec:   #475569;
+  --text-muted: #94A3B8;
+
+  --success-dim: rgba(34, 197, 94, 0.08);
+
+  --shadow:    0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg: 0 4px 32px rgba(0,0,0,0.12);
+}
+
+[data-theme="light"] body {
+  background-image: radial-gradient(ellipse 80% 40% at 50% -10%, rgba(10,102,194,0.05) 0%, transparent 70%);
+}
+
+[data-theme="light"] .header-bg {
+  background:
+    radial-gradient(ellipse 70% 100% at 10% 50%, rgba(10,102,194,0.07) 0%, transparent 60%),
+    linear-gradient(180deg, #EFF6FF 0%, #F8FAFC 100%);
+}
+
+[data-theme="light"] .header-bg::before {
+  background-image: radial-gradient(rgba(10,102,194,0.06) 1px, transparent 1px);
+}
+
+[data-theme="light"] .url-display {
+  background: #F8FAFC;
+  border-color: var(--border);
+}
+
+[data-theme="light"] .url-display code {
+  color: var(--accent);
+}
+
+[data-theme="light"] .btn-secondary {
+  background: #F1F5F9;
+  color: var(--text-sec);
+}
+
+[data-theme="light"] .btn-secondary:hover {
+  background: #E2E8F0;
+  color: var(--text);
+}
+
+[data-theme="light"] .filter-card-header:hover {
+  background: rgba(10,102,194,0.03);
+}
+
+[data-theme="light"] .chip {
+  background: #F1F5F9;
+  color: var(--text-sec);
+}
+
+[data-theme="light"] .chip:hover {
+  background: #E2E8F0;
+  color: var(--text);
+}
+
+[data-theme="light"] .currency-pill {
+  background: #F1F5F9;
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .toggle-track {
+  background: #CBD5E1;
+  border-color: #CBD5E1;
+}
+
+[data-theme="light"] .template-chip {
+  background: rgba(10,102,194,0.06);
+}
+
+[data-theme="light"] .gh-link {
+  background: rgba(0,0,0,0.04);
+}
+
+[data-theme="light"] .gh-link:hover {
+  background: rgba(0,0,0,0.07);
+}
+
+/* ============================================================
    RESET & BASE
    ============================================================ */
 *, *::before, *::after {
@@ -95,6 +191,59 @@ input {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+/* ============================================================
+   THEME TOGGLE
+   ============================================================ */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: var(--r-full);
+  color: var(--text-sec);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--t);
+  white-space: nowrap;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.theme-toggle:hover {
+  background: rgba(255,255,255,0.07);
+  color: var(--text);
+  border-color: var(--border-hover);
+  transform: translateY(-1px);
+}
+
+[data-theme="light"] .theme-toggle {
+  background: rgba(0,0,0,0.04);
+}
+
+[data-theme="light"] .theme-toggle:hover {
+  background: rgba(0,0,0,0.07);
+}
+
+.theme-toggle-icon {
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover .theme-toggle-icon {
+  transform: rotate(20deg);
+}
+
+/* header controls group */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 /* ============================================================

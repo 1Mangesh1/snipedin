@@ -574,6 +574,7 @@ function injectErrorStyle() {
 // ============================================================
 function init() {
   injectErrorStyle();
+  initTheme();
   renderBuiltin();
   renderSalaryChips();
   renderSaved();
@@ -658,6 +659,35 @@ function init() {
 
   // Initial render
   updateUI();
+}
+
+// ============================================================
+// THEME TOGGLE
+// ============================================================
+const THEME_KEY = 'snipedin_theme';
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  const icon  = document.getElementById('themeIcon');
+  const label = document.getElementById('themeLabel');
+  if (theme === 'light') {
+    icon.textContent  = '☀️';
+    label.textContent = 'Dark';
+  } else {
+    icon.textContent  = '🌙';
+    label.textContent = 'Light';
+  }
+  localStorage.setItem(THEME_KEY, theme);
+}
+
+function initTheme() {
+  const saved = localStorage.getItem(THEME_KEY);
+  // Default dark; respect saved preference
+  applyTheme(saved === 'light' ? 'light' : 'dark');
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'light' ? 'dark' : 'light');
+  });
 }
 
 document.addEventListener('DOMContentLoaded', init);
