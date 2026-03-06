@@ -103,12 +103,15 @@
           </div>
           <div class="filter-card-body" id="body-time">
             <div class="chip-group" role="group" aria-label="Time posted">
-              <button class="chip chip-lightning" data-group="timePosted" data-value="r600">⚡ 10 min</button>
+              <button class="chip chip-lightning" data-group="timePosted" data-value="r600" data-tooltip="LinkedIn's minimum filter is 1 hour — may return 0 results">⚡ 10 min</button>
               <button class="chip" data-group="timePosted" data-value="r3600">Past Hour</button>
               <button class="chip" data-group="timePosted" data-value="r86400">Past 24h</button>
               <button class="chip" data-group="timePosted" data-value="r604800">Past Week</button>
               <button class="chip" data-group="timePosted" data-value="r2592000">Past Month</button>
             </div>
+            <p class="lightning-hint" id="lightningHint" role="alert" aria-live="polite">
+              ⚠ LinkedIn's minimum filter is 1 hour — this may return 0 results
+            </p>
           </div>
         </div>
 

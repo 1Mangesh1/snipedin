@@ -166,6 +166,10 @@ function updateUI() {
                             ? [state.keywords.trim(), state.location.trim()].filter(Boolean).join(', ')
                             : '');
   setSummary('time',     state.timePosted ? TIME_LABELS[state.timePosted] || '' : '');
+
+  // Show inline warning when ⚡ 10 min is selected — mobile can't use hover tooltip
+  const hint = document.getElementById('lightningHint');
+  if (hint) hint.classList.toggle('visible', state.timePosted === 'r600');
   setSummary('sort',     state.sortBy === 'DD' ? 'Recent' : state.sortBy === 'R' ? 'Relevant' : '');
   setSummary('workmode', state.workMode.length  ? `${state.workMode.length} selected`  : '');
   setSummary('jobtype',  state.jobType.length   ? `${state.jobType.length} selected`   : '');
