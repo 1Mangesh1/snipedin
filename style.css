@@ -1081,6 +1081,13 @@ input {
 }
 
 /* ============================================================
+   MOBILE STICKY ACTION BAR
+   ============================================================ */
+.mobile-bar {
+  display: none;
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 960px) {
@@ -1094,6 +1101,116 @@ input {
 
   .preview-panel {
     order: -1;
+  }
+
+  /* Sticky bottom bar */
+  .mobile-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 10px 16px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    gap: 12px;
+    backdrop-filter: blur(8px);
+  }
+
+  .mobile-bar-filters {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .mobile-bar-count {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 18px;
+    line-height: 1;
+  }
+
+  .mobile-bar-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+
+  .mobile-bar-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .mobile-bar-copy {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 9px 14px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--r-full);
+    color: var(--text-sec);
+    font-size: 0.81rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color var(--t), color var(--t);
+    white-space: nowrap;
+  }
+
+  .mobile-bar-copy:hover,
+  .mobile-bar-copy.copied {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .mobile-bar-open {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 16px;
+    background: var(--accent);
+    border-radius: var(--r-full);
+    color: #fff;
+    font-size: 0.81rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background var(--t);
+  }
+
+  .mobile-bar-open:hover {
+    background: var(--accent-hover);
+  }
+
+  /* Push page content above the sticky bar */
+  body {
+    padding-bottom: calc(60px + env(safe-area-inset-bottom));
+  }
+
+  /* Horizontal scroll templates with fade hint */
+  .templates-row,
+  .templates-chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-mask-image: linear-gradient(to right, black 80%, transparent 100%);
+    mask-image: linear-gradient(to right, black 80%, transparent 100%);
+    padding-right: 24px;
+  }
+
+  .templates-row::-webkit-scrollbar,
+  .templates-chips::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -1123,7 +1240,7 @@ input {
   }
 
   .main-content {
-    padding: 20px 0 48px;
+    padding: 20px 0 28px;
   }
 
   .stats-row {
@@ -1133,6 +1250,16 @@ input {
 
   .stat-num {
     font-size: 1.2rem;
+  }
+
+  /* Prevent iOS auto-zoom on input focus */
+  .input-field {
+    font-size: 16px;
+  }
+
+  /* Currency pills wrap nicely on small screens */
+  .currency-pills {
+    flex-wrap: wrap;
   }
 }
 
@@ -1150,4 +1277,9 @@ input {
     font-size: 0.78rem;
     padding: 7px 12px;
   }
+}
+
+/* Light mode sticky bar */
+[data-theme="light"] .mobile-bar {
+  background: rgba(248, 250, 252, 0.95);
 }

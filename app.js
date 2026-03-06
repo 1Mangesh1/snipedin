@@ -155,6 +155,12 @@ function updateUI() {
   document.getElementById('filterCount').textContent = filterCount;
   document.getElementById('urlLength').textContent = url.length;
 
+  // Sync mobile sticky bar
+  const mobileCount = document.getElementById('mobileFilterCount');
+  const mobileOpen  = document.getElementById('mobileOpenBtn');
+  if (mobileCount) mobileCount.textContent = filterCount;
+  if (mobileOpen)  mobileOpen.href = url;
+
   // Summaries on filter card headers
   setSummary('search',   (state.keywords.trim() || state.location.trim())
                             ? [state.keywords.trim(), state.location.trim()].filter(Boolean).join(', ')
@@ -657,6 +663,45 @@ function init() {
       copyURL();
     }
   });
+
+  // Collapse all filter cards except Search on mobile by default
+  if (window.innerWidth <= 960) {
+    ['time', 'sort', 'workmode', 'jobtype', 'exp', 'easy', 'salary'].forEach(id => {
+      const card = document.getElementById(`card-${id}`);
+      if (!card) return;
+      card.classList.add('collapsed');
+      const header = card.querySelector('[data-toggle]');
+      if (header) header.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  // Mobile sticky bar — copy button
+  const mobileCopyBtn = document.getElementById('mobileCopyBtn');
+  if (mobileCopyBtn) {
+    mobileCopyBtn.addEventListener('click', () => {
+      const url = buildURL();
+      const finish = (ok) => {
+        const text = document.getElementById('mobileCopyText');
+        mobileCopyBtn.classList.add('copied');
+        if (text) text.textContent = ok ? '✓ Copied' : '⚠ Failed';
+        setTimeout(() => {
+          mobileCopyBtn.classList.remove('copied');
+          if (text) text.textContent = 'Copy';
+        }, 2000);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(url).then(() => finish(true)).catch(() => finish(false));
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = url;
+        ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none;';
+        document.body.appendChild(ta);
+        ta.focus(); ta.select();
+        try { document.execCommand('copy'); finish(true); } catch { finish(false); }
+        document.body.removeChild(ta);
+      }
+    });
+  }
 
   // Initial render
   updateUI();
