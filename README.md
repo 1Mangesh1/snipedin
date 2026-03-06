@@ -1,4 +1,4 @@
-# 🎯 SnipeDin — Hunt Fresh LinkedIn Jobs
+# 🎯 SnipeDin - Hunt Fresh LinkedIn Jobs
 
 > **Zero noise. Full control.** Build precision LinkedIn job search URLs in seconds.
 
@@ -8,7 +8,7 @@
 
 ## What Is This?
 
-LinkedIn's job search is powerful — but its URL parameters are hard to craft by hand. **SnipeDin** gives you a beautiful dashboard to configure every filter visually, then generates the perfect LinkedIn URL instantly.
+LinkedIn's job search is powerful - but its URL parameters are hard to craft by hand. **SnipeDin** gives you a beautiful dashboard to configure every filter visually, then generates the perfect LinkedIn URL instantly.
 
 Stop endlessly clicking through LinkedIn's UI. Build once, bookmark, share.
 
@@ -65,7 +65,7 @@ Stop endlessly clicking through LinkedIn's UI. Build once, bookmark, share.
 ```bash
 git clone https://github.com/1Mangesh1/snipedin.git
 cd snipedin
-# Open index.html in your browser — no build step needed!
+# Open index.html in your browser - no build step needed!
 open index.html
 ```
 

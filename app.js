@@ -1,5 +1,5 @@
 /* ============================================================
-   app.js — SnipeDin LinkedIn Job URL Builder
+   app.js - SnipeDin LinkedIn Job URL Builder
    Pure vanilla JS, zero dependencies.
    ============================================================ */
 
@@ -54,7 +54,7 @@ const BUILTIN_TEMPLATES = [
     state: { keywords: 'UI UX Designer', workMode: ['2', '3'], timePosted: 'r604800', sortBy: 'DD' },
   },
   {
-    label: '⚡ Past Hour — Any',
+    label: '⚡ Past Hour - Any',
     state: { timePosted: 'r3600', sortBy: 'DD' },
   },
   {
@@ -422,7 +422,7 @@ function renderSaved() {
     </button>
   `).join('');
 
-  // Wire events — list items
+  // Wire events - list items
   listEl.querySelectorAll('.saved-item').forEach(item => {
     item.addEventListener('click', e => {
       if (e.target.dataset.del !== undefined) return;
@@ -449,7 +449,7 @@ function renderSaved() {
     });
   });
 
-  // Wire events — bar chips
+  // Wire events - bar chips
   chipsEl.querySelectorAll('[data-saved]').forEach(chip => {
     chip.addEventListener('click', () => {
       const t = getSaved()[parseInt(chip.dataset.saved)];
@@ -580,7 +580,7 @@ function init() {
   renderSaved();
   updateSavedCount();
 
-  // Text inputs — debounced
+  // Text inputs - debounced
   let debounceTimer;
   function onInput(key, el) {
     el.addEventListener('input', e => {
