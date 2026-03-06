@@ -28,30 +28,31 @@
   <rect x="0" y="0" width="5" height="630" fill="#0A66C2" opacity="0.8"/>
 
   <!-- Logo emoji -->
-  <text x="120" y="280" font-size="110" font-family="Apple Color Emoji, Segoe UI Emoji, sans-serif">🎯</text>
+  <text x="120" y="260" font-size="110" font-family="Apple Color Emoji, Segoe UI Emoji, sans-serif">🎯</text>
 
   <!-- Brand name -->
-  <text x="120" y="360" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="88" font-weight="800" fill="#F1F5F9" letter-spacing="-2">SnipeDin</text>
+  <text x="120" y="345" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="88" font-weight="800" fill="#F1F5F9" letter-spacing="-2">SnipeDin</text>
 
-  <!-- Tagline -->
-  <text x="120" y="420" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="32" font-weight="400" fill="#94A3B8">Hunt the freshest LinkedIn jobs — zero noise, full control</text>
+  <!-- Tagline — 2 lines so it stays clear of the right card -->
+  <text x="120" y="400" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="30" font-weight="400" fill="#94A3B8">Hunt the freshest LinkedIn jobs —</text>
+  <text x="120" y="442" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="30" font-weight="400" fill="#94A3B8">zero noise, full control.</text>
 
   <!-- Feature pills row -->
   <!-- ⚡ Fresh -->
-  <rect x="120" y="460" width="130" height="42" rx="21" fill="rgba(251,191,36,0.12)" stroke="#ca8a04" stroke-width="1.5"/>
-  <text x="185" y="487" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="600" fill="#fbbf24" text-anchor="middle">⚡ Fresh</text>
+  <rect x="120" y="485" width="130" height="42" rx="21" fill="rgba(251,191,36,0.12)" stroke="#ca8a04" stroke-width="1.5"/>
+  <text x="185" y="512" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="600" fill="#fbbf24" text-anchor="middle">⚡ Fresh</text>
 
   <!-- Remote -->
-  <rect x="268" y="460" width="150" height="42" rx="21" fill="rgba(10,102,194,0.12)" stroke="rgba(10,102,194,0.4)" stroke-width="1.5"/>
-  <text x="343" y="487" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="600" fill="#5BA3E0" text-anchor="middle">🏠 Remote</text>
+  <rect x="268" y="485" width="150" height="42" rx="21" fill="rgba(10,102,194,0.12)" stroke="rgba(10,102,194,0.4)" stroke-width="1.5"/>
+  <text x="343" y="512" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="600" fill="#5BA3E0" text-anchor="middle">🏠 Remote</text>
 
   <!-- Salary -->
-  <rect x="436" y="460" width="148" height="42" rx="21" fill="rgba(10,102,194,0.12)" stroke="rgba(10,102,194,0.4)" stroke-width="1.5"/>
-  <text x="510" y="487" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="600" fill="#5BA3E0" text-anchor="middle">💰 Salary</text>
+  <rect x="436" y="485" width="148" height="42" rx="21" fill="rgba(10,102,194,0.12)" stroke="rgba(10,102,194,0.4)" stroke-width="1.5"/>
+  <text x="510" y="512" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="600" fill="#5BA3E0" text-anchor="middle">💰 Salary</text>
 
   <!-- Easy Apply -->
-  <rect x="602" y="460" width="178" height="42" rx="21" fill="rgba(34,197,94,0.1)" stroke="rgba(34,197,94,0.35)" stroke-width="1.5"/>
-  <text x="691" y="487" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="600" fill="#22C55E" text-anchor="middle">✅ Easy Apply</text>
+  <rect x="602" y="485" width="178" height="42" rx="21" fill="rgba(34,197,94,0.1)" stroke="rgba(34,197,94,0.35)" stroke-width="1.5"/>
+  <text x="691" y="512" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="600" fill="#22C55E" text-anchor="middle">✅ Easy Apply</text>
 
   <!-- URL badge top-right -->
   <rect x="880" y="48" width="280" height="44" rx="8" fill="rgba(10,102,194,0.12)" stroke="rgba(10,102,194,0.3)" stroke-width="1"/>
