@@ -655,6 +655,41 @@ input {
   background: rgba(10, 102, 194, 0.18);
 }
 
+/* Lightning chip — super recent */
+.chip-lightning {
+  border-color: #ca8a04;
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.chip-lightning:hover {
+  background: rgba(251, 191, 36, 0.08);
+  border-color: #fbbf24;
+  color: #fde68a;
+}
+
+.chip-lightning.active {
+  background: rgba(251, 191, 36, 0.12);
+  border-color: #fbbf24;
+  color: #fde68a;
+}
+
+.chip-lightning.active:hover {
+  background: rgba(251, 191, 36, 0.18);
+}
+
+[data-theme="light"] .chip-lightning {
+  border-color: #d97706;
+  color: #b45309;
+}
+
+[data-theme="light"] .chip-lightning:hover,
+[data-theme="light"] .chip-lightning.active {
+  background: rgba(217, 119, 6, 0.08);
+  border-color: #d97706;
+  color: #92400e;
+}
+
 /* ============================================================
    TOGGLE SWITCH
    ============================================================ */

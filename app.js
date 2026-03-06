@@ -11,7 +11,7 @@
 const state = {
   keywords:   '',
   location:   '',
-  timePosted: '',      // single: r3600 | r86400 | r604800 | r2592000
+  timePosted: '',      // single: r600 | r3600 | r86400 | r604800 | r2592000
   sortBy:     '',      // single: DD | R
   workMode:   [],      // multi:  1 | 2 | 3
   jobType:    [],      // multi:  F | P | C | T | I | V
@@ -71,6 +71,7 @@ const BUILTIN_TEMPLATES = [
 // LABEL MAPS (for summaries)
 // ============================================================
 const TIME_LABELS = {
+  r600:    '⚡ 10 min',
   r3600:   '1h',
   r86400:  '24h',
   r604800: '1 week',
