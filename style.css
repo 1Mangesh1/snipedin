@@ -199,44 +199,27 @@ input {
 .theme-toggle {
   display: flex;
   align-items: center;
-  gap: 7px;
-  padding: 8px 14px;
-  background: rgba(255,255,255,0.05);
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  background: transparent;
   border: 1px solid var(--border);
-  border-radius: var(--r-full);
+  border-radius: 50%;
   color: var(--text-sec);
-  font-size: 0.82rem;
-  font-weight: 500;
   cursor: pointer;
-  transition: all var(--t);
-  white-space: nowrap;
+  transition: color var(--t), border-color var(--t), background var(--t);
   flex-shrink: 0;
-  user-select: none;
 }
 
 .theme-toggle:hover {
-  background: rgba(255,255,255,0.07);
   color: var(--text);
-  border-color: var(--border-hover);
-  transform: translateY(-1px);
-}
-
-[data-theme="light"] .theme-toggle {
-  background: rgba(0,0,0,0.04);
+  border-color: var(--accent);
+  background: rgba(10,102,194,0.08);
 }
 
 [data-theme="light"] .theme-toggle:hover {
-  background: rgba(0,0,0,0.07);
-}
-
-.theme-toggle-icon {
-  font-size: 1rem;
-  line-height: 1;
-  transition: transform 0.3s ease;
-}
-
-.theme-toggle:hover .theme-toggle-icon {
-  transform: rotate(20deg);
+  background: rgba(10,102,194,0.06);
 }
 
 /* header controls group */
