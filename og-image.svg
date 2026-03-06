@@ -55,7 +55,7 @@
 
   <!-- URL badge top-right -->
   <rect x="880" y="48" width="280" height="44" rx="8" fill="rgba(10,102,194,0.12)" stroke="rgba(10,102,194,0.3)" stroke-width="1"/>
-  <text x="1020" y="76" font-family="'SF Mono', 'Fira Code', monospace" font-size="15" fill="#5BA3E0" text-anchor="middle">1mangesh1.github.io/snipedin</text>
+  <text x="1020" y="76" font-family="'SF Mono', 'Fira Code', monospace" font-size="15" fill="#5BA3E0" text-anchor="middle">mangeshbide.tech/snipedin</text>
 
   <!-- Right decorative URL block -->
   <rect x="830" y="140" width="310" height="330" rx="14" fill="rgba(30,41,59,0.85)" stroke="rgba(10,102,194,0.35)" stroke-width="1.5"/>
