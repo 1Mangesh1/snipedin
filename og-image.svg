@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0B1120"/>
+      <stop offset="100%" style="stop-color:#0F172A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="15%" cy="50%" r="55%">
+      <stop offset="0%" style="stop-color:#0A66C2;stop-opacity:0.22"/>
+      <stop offset="100%" style="stop-color:#0A66C2;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="topglow" cx="50%" cy="0%" r="60%">
+      <stop offset="0%" style="stop-color:#0A66C2;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#0A66C2;stop-opacity:0"/>
+    </radialGradient>
+    <!-- dot grid pattern -->
+    <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="rgba(255,255,255,0.04)"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect width="1200" height="630" fill="url(#topglow)"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="5" height="630" fill="#0A66C2" opacity="0.8"/>
+
+  <!-- Logo emoji -->
+  <text x="120" y="280" font-size="110" font-family="Apple Color Emoji, Segoe UI Emoji, sans-serif">🎯</text>
+
+  <!-- Brand name -->
+  <text x="120" y="360" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="88" font-weight="800" fill="#F1F5F9" letter-spacing="-2">SnipeDin</text>
+
+  <!-- Tagline -->
+  <text x="120" y="420" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="32" font-weight="400" fill="#94A3B8">Hunt the freshest LinkedIn jobs — zero noise, full control</text>
+
+  <!-- Feature pills row -->
+  <!-- ⚡ Fresh -->
+  <rect x="120" y="460" width="130" height="42" rx="21" fill="rgba(251,191,36,0.12)" stroke="#ca8a04" stroke-width="1.5"/>
+  <text x="185" y="487" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="600" fill="#fbbf24" text-anchor="middle">⚡ Fresh</text>
+
+  <!-- Remote -->
+  <rect x="268" y="460" width="150" height="42" rx="21" fill="rgba(10,102,194,0.12)" stroke="rgba(10,102,194,0.4)" stroke-width="1.5"/>
+  <text x="343" y="487" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="600" fill="#5BA3E0" text-anchor="middle">🏠 Remote</text>
+
+  <!-- Salary -->
+  <rect x="436" y="460" width="148" height="42" rx="21" fill="rgba(10,102,194,0.12)" stroke="rgba(10,102,194,0.4)" stroke-width="1.5"/>
+  <text x="510" y="487" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="600" fill="#5BA3E0" text-anchor="middle">💰 Salary</text>
+
+  <!-- Easy Apply -->
+  <rect x="602" y="460" width="178" height="42" rx="21" fill="rgba(34,197,94,0.1)" stroke="rgba(34,197,94,0.35)" stroke-width="1.5"/>
+  <text x="691" y="487" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="600" fill="#22C55E" text-anchor="middle">✅ Easy Apply</text>
+
+  <!-- URL badge top-right -->
+  <rect x="880" y="48" width="280" height="44" rx="8" fill="rgba(10,102,194,0.12)" stroke="rgba(10,102,194,0.3)" stroke-width="1"/>
+  <text x="1020" y="76" font-family="'SF Mono', 'Fira Code', monospace" font-size="15" fill="#5BA3E0" text-anchor="middle">1mangesh1.github.io/snipedin</text>
+
+  <!-- Right decorative URL block -->
+  <rect x="830" y="140" width="310" height="330" rx="14" fill="rgba(30,41,59,0.85)" stroke="rgba(10,102,194,0.35)" stroke-width="1.5"/>
+  <!-- URL card header -->
+  <rect x="845" y="155" width="280" height="28" rx="6" fill="rgba(10,102,194,0.15)"/>
+  <text x="855" y="174" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700" fill="#94A3B8" letter-spacing="1">🔗  GENERATED URL</text>
+  <circle cx="1103" cy="169" r="5" fill="#22C55E" opacity="0.9"/>
+  <text x="1113" y="174" font-family="-apple-system, sans-serif" font-size="10" font-weight="800" fill="#22C55E" letter-spacing="1">LIVE</text>
+  <!-- URL text lines -->
+  <text x="855" y="212" font-family="'SF Mono', monospace" font-size="11" fill="#5BA3E0">https://www.linkedin.com/</text>
+  <text x="855" y="230" font-family="'SF Mono', monospace" font-size="11" fill="#5BA3E0">jobs/search/?keywords=</text>
+  <text x="855" y="248" font-family="'SF Mono', monospace" font-size="11" fill="#94A3B8">React+Developer&amp;f_TPR=</text>
+  <text x="855" y="266" font-family="'SF Mono', monospace" font-size="11" fill="#94A3B8">r86400&amp;f_WT=2&amp;sortBy=DD</text>
+  <text x="855" y="284" font-family="'SF Mono', monospace" font-size="11" fill="#64748B">&amp;f_JT=F&amp;f_E=3%2C4&amp;f_SB2=</text>
+  <text x="855" y="302" font-family="'SF Mono', monospace" font-size="11" fill="#64748B">100000</text>
+  <!-- Copy button -->
+  <rect x="845" y="325" width="130" height="36" rx="6" fill="#0A66C2"/>
+  <text x="910" y="348" font-family="-apple-system, sans-serif" font-size="14" font-weight="600" fill="#fff" text-anchor="middle">📋 Copy URL</text>
+  <!-- Open button -->
+  <rect x="985" y="325" width="140" height="36" rx="6" fill="rgba(255,255,255,0.06)" stroke="#334155" stroke-width="1"/>
+  <text x="1055" y="348" font-family="-apple-system, sans-serif" font-size="14" font-weight="600" fill="#94A3B8" text-anchor="middle">🚀 Open</text>
+  <!-- Stats row -->
+  <rect x="845" y="375" width="86" height="54" rx="6" fill="rgba(10,102,194,0.08)" stroke="#334155" stroke-width="1"/>
+  <text x="888" y="400" font-family="-apple-system, sans-serif" font-size="20" font-weight="800" fill="#5BA3E0" text-anchor="middle">6</text>
+  <text x="888" y="418" font-family="-apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B" text-anchor="middle" letter-spacing="0.5">FILTERS</text>
+  <rect x="939" y="375" width="86" height="54" rx="6" fill="rgba(10,102,194,0.08)" stroke="#334155" stroke-width="1"/>
+  <text x="982" y="400" font-family="-apple-system, sans-serif" font-size="20" font-weight="800" fill="#5BA3E0" text-anchor="middle">187</text>
+  <text x="982" y="418" font-family="-apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B" text-anchor="middle" letter-spacing="0.5">URL LEN</text>
+  <rect x="1033" y="375" width="87" height="54" rx="6" fill="rgba(10,102,194,0.08)" stroke="#334155" stroke-width="1"/>
+  <text x="1076" y="400" font-family="-apple-system, sans-serif" font-size="20" font-weight="800" fill="#22C55E" text-anchor="middle">3</text>
+  <text x="1076" y="418" font-family="-apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B" text-anchor="middle" letter-spacing="0.5">SAVED</text>
+</svg>
