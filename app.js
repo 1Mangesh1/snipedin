@@ -18,7 +18,7 @@ const state = {
   experience: [],      // multi:  1..6
   easyApply:  false,
   salary:     '',      // single: 40000 | 60000 | …
-  currency:   'USD',   // display currency for salary chips
+  currency:   'INR',   // display currency for salary chips
 };
 
 // ============================================================
@@ -250,7 +250,7 @@ function resetAll() {
   state.experience = [];
   state.easyApply  = false;
   state.salary     = '';
-  state.currency   = 'USD';
+  state.currency   = 'INR';
 
   // Sync DOM
   document.getElementById('keywords').value = '';
@@ -258,7 +258,7 @@ function resetAll() {
   document.getElementById('easyApply').checked = false;
   document.querySelectorAll('.chip.active').forEach(c => c.classList.remove('active'));
   // Reset currency pills
-  document.querySelectorAll('.currency-pill').forEach(p => p.classList.toggle('active', p.dataset.currency === 'USD'));
+  document.querySelectorAll('.currency-pill').forEach(p => p.classList.toggle('active', p.dataset.currency === 'INR'));
   renderSalaryChips();
 
   updateUI();
