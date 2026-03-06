@@ -655,7 +655,7 @@ input {
   background: rgba(10, 102, 194, 0.18);
 }
 
-/* Lightning chip — super recent */
+/* Lightning chip - super recent */
 .chip-lightning {
   border-color: #ca8a04;
   color: #fbbf24;
@@ -679,7 +679,7 @@ input {
   background: rgba(251, 191, 36, 0.18);
 }
 
-/* Desktop tooltip — shown on hover via CSS */
+/* Desktop tooltip - shown on hover via CSS */
 .chip-lightning[data-tooltip]:hover::after {
   content: attr(data-tooltip);
   position: absolute;
@@ -712,7 +712,7 @@ input {
   z-index: 51;
 }
 
-/* Touch devices can't hover — suppress CSS tooltip, JS inline hint handles it */
+/* Touch devices can't hover - suppress CSS tooltip, JS inline hint handles it */
 @media (hover: none) {
   .chip-lightning[data-tooltip]:hover::after,
   .chip-lightning[data-tooltip]:hover::before {
@@ -720,7 +720,7 @@ input {
   }
 }
 
-/* Inline hint — shown by JS when chip is active (primary UX for mobile) */
+/* Inline hint - shown by JS when chip is active (primary UX for mobile) */
 .lightning-hint {
   display: none;
   margin-top: 10px;

@@ -40,7 +40,7 @@ Stop endlessly clicking through LinkedIn's UI. Build once, bookmark, share.
 |---|---|---|
 | Keywords | `keywords` | any text |
 | Location | `location` | any text |
-| Time posted | `f_TPR` | `r3600` `r86400` `r604800` `r2592000` |
+| Time posted | `f_TPR` | `r3600` `r-` `r604800` `r2592000` |
 | Sort by | `sortBy` | `DD` (recent) `R` (relevant) |
 | Work mode | `f_WT` | `1` `2` `3` (on-site, remote, hybrid) |
 | Job type | `f_JT` | `F` `P` `C` `T` `I` `V` |

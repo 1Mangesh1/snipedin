@@ -11,7 +11,7 @@
 const state = {
   keywords:   '',
   location:   '',
-  timePosted: '',      // single: r600 | r3600 | r86400 | r604800 | r2592000
+  timePosted: '',      // single: r600 | r3600 | r- | r604800 | r2592000
   sortBy:     '',      // single: DD | R
   workMode:   [],      // multi:  1 | 2 | 3
   jobType:    [],      // multi:  F | P | C | T | I | V
@@ -27,7 +27,7 @@ const state = {
 const BUILTIN_TEMPLATES = [
   {
     label: '🚀 Node.js Remote',
-    state: { keywords: 'Node.js Developer', workMode: ['2'], timePosted: 'r86400', sortBy: 'DD' },
+    state: { keywords: 'Node.js Developer', workMode: ['2'], timePosted: 'r-', sortBy: 'DD' },
   },
   {
     label: '⚛️ React Frontend',
@@ -39,7 +39,7 @@ const BUILTIN_TEMPLATES = [
   },
   {
     label: '🐍 Python Fresh',
-    state: { keywords: 'Python Developer', timePosted: 'r86400', sortBy: 'DD', easyApply: true },
+    state: { keywords: 'Python Developer', timePosted: 'r-', sortBy: 'DD', easyApply: true },
   },
   {
     label: '🤖 AI / ML Engineer',
@@ -63,7 +63,7 @@ const BUILTIN_TEMPLATES = [
   },
   {
     label: '🟢 Easy Apply Today',
-    state: { timePosted: 'r86400', easyApply: true, sortBy: 'DD' },
+    state: { timePosted: 'r-', easyApply: true, sortBy: 'DD' },
   },
 ];
 
@@ -167,7 +167,7 @@ function updateUI() {
                             : '');
   setSummary('time',     state.timePosted ? TIME_LABELS[state.timePosted] || '' : '');
 
-  // Show inline warning when ⚡ 10 min is selected — mobile can't use hover tooltip
+  // Show inline warning when ⚡ 10 min is selected - mobile can't use hover tooltip
   const hint = document.getElementById('lightningHint');
   if (hint) hint.classList.toggle('visible', state.timePosted === 'r600');
   setSummary('sort',     state.sortBy === 'DD' ? 'Recent' : state.sortBy === 'R' ? 'Relevant' : '');
@@ -679,7 +679,7 @@ function init() {
     });
   }
 
-  // Mobile sticky bar — copy button
+  // Mobile sticky bar - copy button
   const mobileCopyBtn = document.getElementById('mobileCopyBtn');
   if (mobileCopyBtn) {
     mobileCopyBtn.addEventListener('click', () => {
