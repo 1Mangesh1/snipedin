@@ -2,7 +2,7 @@
 
 > **Zero noise. Full control.** Build precision LinkedIn job search URLs in seconds.
 
-**Live App → [snipedin.pages.dev / 1mangesh1.github.io/snipedin](https://1mangesh1.github.io/snipedin/)**
+**Live App → [mangeshbide.tech/snipedin](https://mangeshbide.tech/snipedin) and  [1mangesh1.github.io/snipedin](https://1mangesh1.github.io/snipedin/)**
 
 ---
 
