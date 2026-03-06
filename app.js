@@ -18,6 +18,7 @@ const state = {
   experience: [],      // multi:  1..6
   easyApply:  false,
   salary:     '',      // single: 40000 | 60000 | …
+  currency:   'USD',   // display currency for salary chips
 };
 
 // ============================================================
@@ -76,16 +77,29 @@ const TIME_LABELS = {
   r2592000:'1 month',
 };
 
-const SALARY_LABELS = {
-  40000:  '$40k+',
-  60000:  '$60k+',
-  80000:  '$80k+',
-  100000: '$100k+',
-  120000: '$120k+',
-  140000: '$140k+',
-  160000: '$160k+',
-  200000: '$200k+',
+// Currency definitions: symbol + display tiers (values are LinkedIn's f_SB2 param buckets)
+const CURRENCIES = {
+  USD: { symbol: '$',  suffix: 'k', divisor: 1000,    tiers: [40000, 60000, 80000, 100000, 120000, 140000, 160000, 200000] },
+  EUR: { symbol: '€',  suffix: 'k', divisor: 1000,    tiers: [40000, 60000, 80000, 100000, 120000, 140000, 160000, 200000] },
+  GBP: { symbol: '£',  suffix: 'k', divisor: 1000,    tiers: [40000, 60000, 80000, 100000, 120000, 140000, 160000, 200000] },
+  INR: { symbol: '₹',  suffix: 'L', divisor: 100000,  tiers: [40000, 60000, 80000, 100000, 120000, 140000, 160000, 200000] },
+  CAD: { symbol: 'C$', suffix: 'k', divisor: 1000,    tiers: [40000, 60000, 80000, 100000, 120000, 140000, 160000, 200000] },
+  AUD: { symbol: 'A$', suffix: 'k', divisor: 1000,    tiers: [40000, 60000, 80000, 100000, 120000, 140000, 160000, 200000] },
 };
+
+function salaryLabel(value) {
+  const c = CURRENCIES[state.currency];
+  const display = value / c.divisor;
+  const formatted = Number.isInteger(display) ? display : display.toFixed(1).replace(/\.0$/, '');
+  return `${c.symbol}${formatted}${c.suffix}+`;
+}
+
+// Kept for backward compat with template summaries (dynamic now)
+function getSalaryLabels() {
+  const labels = {};
+  CURRENCIES[state.currency].tiers.forEach(v => { labels[v] = salaryLabel(v); });
+  return labels;
+}
 
 // ============================================================
 // URL BUILDER
@@ -150,7 +164,7 @@ function updateUI() {
   setSummary('jobtype',  state.jobType.length   ? `${state.jobType.length} selected`   : '');
   setSummary('exp',      state.experience.length ? `${state.experience.length} selected` : '');
   setSummary('easy',     state.easyApply ? 'On' : '');
-  setSummary('salary',   state.salary ? (SALARY_LABELS[state.salary] || '') : '');
+  setSummary('salary',   state.salary ? (salaryLabel(state.salary) || '') : '');
 
   // Active card border highlight
   document.querySelectorAll('.filter-card[id^="card-"]').forEach(card => {
@@ -236,12 +250,16 @@ function resetAll() {
   state.experience = [];
   state.easyApply  = false;
   state.salary     = '';
+  state.currency   = 'USD';
 
   // Sync DOM
   document.getElementById('keywords').value = '';
   document.getElementById('location').value = '';
   document.getElementById('easyApply').checked = false;
   document.querySelectorAll('.chip.active').forEach(c => c.classList.remove('active'));
+  // Reset currency pills
+  document.querySelectorAll('.currency-pill').forEach(p => p.classList.toggle('active', p.dataset.currency === 'USD'));
+  renderSalaryChips();
 
   updateUI();
 }
@@ -505,6 +523,23 @@ function copyURL() {
 }
 
 // ============================================================
+// RENDER SALARY CHIPS (currency-aware)
+// ============================================================
+function renderSalaryChips() {
+  const container = document.getElementById('salaryChips');
+  if (!container) return;
+  const tiers = CURRENCIES[state.currency].tiers;
+  const currentVal = state.salary;
+  container.innerHTML = tiers.map(v => {
+    const active = currentVal === String(v) ? ' active' : '';
+    return `<button class="chip${active}" data-group="salary" data-value="${v}">${salaryLabel(v)}</button>`;
+  }).join('');
+  container.querySelectorAll('[data-group="salary"]').forEach(btn => {
+    btn.addEventListener('click', () => handleSingleChip(btn));
+  });
+}
+
+// ============================================================
 // RENDER BUILT-IN TEMPLATES
 // ============================================================
 function renderBuiltin() {
@@ -540,6 +575,7 @@ function injectErrorStyle() {
 function init() {
   injectErrorStyle();
   renderBuiltin();
+  renderSalaryChips();
   renderSaved();
   updateSavedCount();
 
@@ -561,8 +597,18 @@ function init() {
     updateUI();
   });
 
-  // Single-select chips (not multi)
-  document.querySelectorAll('.chip:not(.chip-multi)').forEach(btn => {
+  // Currency pills
+  document.querySelectorAll('.currency-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      state.currency = pill.dataset.currency;
+      document.querySelectorAll('.currency-pill').forEach(p => p.classList.toggle('active', p === pill));
+      renderSalaryChips();
+      updateUI();
+    });
+  });
+
+  // Single-select chips (not multi, excluding salary which is wired by renderSalaryChips)
+  document.querySelectorAll('.chip:not(.chip-multi):not([data-group="salary"])').forEach(btn => {
     btn.addEventListener('click', () => handleSingleChip(btn));
   });
 

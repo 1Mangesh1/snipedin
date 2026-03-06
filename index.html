@@ -219,15 +219,19 @@
             <span class="filter-arrow" aria-hidden="true">▾</span>
           </div>
           <div class="filter-card-body" id="body-salary">
-            <div class="chip-group" role="group" aria-label="Minimum salary">
-              <button class="chip" data-group="salary" data-value="40000">$40k+</button>
-              <button class="chip" data-group="salary" data-value="60000">$60k+</button>
-              <button class="chip" data-group="salary" data-value="80000">$80k+</button>
-              <button class="chip" data-group="salary" data-value="100000">$100k+</button>
-              <button class="chip" data-group="salary" data-value="120000">$120k+</button>
-              <button class="chip" data-group="salary" data-value="140000">$140k+</button>
-              <button class="chip" data-group="salary" data-value="160000">$160k+</button>
-              <button class="chip" data-group="salary" data-value="200000">$200k+</button>
+            <div class="currency-row" role="group" aria-label="Currency">
+              <span class="currency-label">Currency:</span>
+              <div class="currency-pills" id="currencyPills">
+                <button class="currency-pill active" data-currency="USD">$ USD</button>
+                <button class="currency-pill" data-currency="EUR">€ EUR</button>
+                <button class="currency-pill" data-currency="GBP">£ GBP</button>
+                <button class="currency-pill" data-currency="INR">₹ INR</button>
+                <button class="currency-pill" data-currency="CAD">C$ CAD</button>
+                <button class="currency-pill" data-currency="AUD">A$ AUD</button>
+              </div>
+            </div>
+            <div class="chip-group" id="salaryChips" role="group" aria-label="Minimum salary">
+              <!-- rendered by app.js renderSalaryChips() -->
             </div>
           </div>
         </div>

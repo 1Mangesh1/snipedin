@@ -417,6 +417,58 @@ input {
 }
 
 /* ============================================================
+   CURRENCY SELECTOR
+   ============================================================ */
+.currency-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.currency-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.currency-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.currency-pill {
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: var(--r-full);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--t);
+  white-space: nowrap;
+}
+
+.currency-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(10, 102, 194, 0.08);
+}
+
+.currency-pill.active {
+  background: rgba(10, 102, 194, 0.18);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ============================================================
    CHIP GROUPS
    ============================================================ */
 .chip-group {
