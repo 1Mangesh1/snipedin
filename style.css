@@ -529,6 +529,13 @@ input {
   margin-bottom: 7px;
 }
 
+.input-tip {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  opacity: 0.75;
+}
+
 .input-field {
   width: 100%;
   padding: 10px 14px;
