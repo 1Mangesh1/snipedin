@@ -707,6 +707,31 @@ function init() {
     });
   }
 
+  // Tab switching
+  const mainJobSearch = document.getElementById('mainJobSearch');
+  const mainReferral  = document.getElementById('mainReferral');
+  const tabJobs       = document.getElementById('tabJobs');
+  const tabReferral   = document.getElementById('tabReferral');
+
+  tabJobs.addEventListener('click', () => {
+    mainJobSearch.style.display = '';
+    mainReferral.style.display  = 'none';
+    tabJobs.classList.add('tab-btn--active');
+    tabReferral.classList.remove('tab-btn--active');
+    tabJobs.setAttribute('aria-selected', 'true');
+    tabReferral.setAttribute('aria-selected', 'false');
+  });
+
+  tabReferral.addEventListener('click', () => {
+    mainJobSearch.style.display = 'none';
+    mainReferral.style.display  = '';
+    tabReferral.classList.add('tab-btn--active');
+    tabJobs.classList.remove('tab-btn--active');
+    tabReferral.setAttribute('aria-selected', 'true');
+    tabJobs.setAttribute('aria-selected', 'false');
+    if (!referralInitialized) { initReferral(); referralInitialized = true; }
+  });
+
   // Initial render
   updateUI();
 }
@@ -737,3 +762,110 @@ function initTheme() {
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
+// ============================================================
+// REFERRAL FINDER
+// ============================================================
+const rState = {
+  company:  '',
+  role:     '',
+  network:  [],   // 'F' | 'S' | 'O'
+  location: '',
+};
+
+function buildReferralURL() {
+  const parts = [rState.role.trim(), rState.company.trim(), rState.location.trim()].filter(Boolean);
+  const params = new URLSearchParams();
+  if (parts.length) params.set('keywords', parts.join(' '));
+  if (rState.network.length) params.set('network', JSON.stringify(rState.network));
+  const base = 'https://www.linkedin.com/search/results/people/';
+  const qs = params.toString();
+  return qs ? `${base}?${qs}` : base;
+}
+
+function updateReferralUI() {
+  const url = buildReferralURL();
+  document.getElementById('rUrlText').textContent = url;
+  document.getElementById('rOpenBtn').href = url;
+
+  const labels = { F: '1st', S: '2nd', O: '3rd+' };
+  setRSummary('company',  rState.company.trim());
+  setRSummary('role',     rState.role.trim());
+  setRSummary('location', rState.location.trim());
+  setRSummary('network',  rState.network.map(v => labels[v]).join(', '));
+
+  const n = [rState.company, rState.role, rState.location].filter(s => s.trim()).length + rState.network.length;
+  document.getElementById('rFilterCount').textContent = n;
+  document.getElementById('rUrlLength').textContent = url.length;
+}
+
+function setRSummary(id, text) {
+  const el = document.getElementById(`rsummary-${id}`);
+  if (!el) return;
+  const display = text.length > 22 ? text.slice(0, 20) + '…' : text;
+  el.textContent = display;
+  el.classList.toggle('visible', !!text);
+}
+
+function copyReferralURL() {
+  const url = buildReferralURL();
+  const finish = (ok) => {
+    const btn = document.getElementById('rCopyBtn');
+    const txt = document.getElementById('rCopyBtnText');
+    if (ok) { btn.classList.add('copied'); txt.textContent = '✓ Copied!'; }
+    else    { txt.textContent = '⚠ Failed'; }
+    setTimeout(() => { btn.classList.remove('copied'); txt.textContent = 'Copy URL'; }, 2200);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(url).then(() => finish(true)).catch(() => finish(false));
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = url;
+    ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none;';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try { document.execCommand('copy'); finish(true); } catch { finish(false); }
+    document.body.removeChild(ta);
+  }
+}
+
+function toggleRCard(id) {
+  const card = document.getElementById(`rcard-${id}`);
+  if (!card) return;
+  const header = card.querySelector('[data-rtoggle]');
+  const isCollapsed = card.classList.toggle('collapsed');
+  if (header) header.setAttribute('aria-expanded', String(!isCollapsed));
+}
+
+let referralInitialized = false;
+
+function initReferral() {
+  let rd;
+  const rOnInput = (key, el) => el.addEventListener('input', e => {
+    clearTimeout(rd);
+    rState[key] = e.target.value;
+    rd = setTimeout(updateReferralUI, 80);
+  });
+  rOnInput('company',  document.getElementById('rCompany'));
+  rOnInput('role',     document.getElementById('rRole'));
+  rOnInput('location', document.getElementById('rLocation'));
+
+  document.querySelectorAll('[data-rgroup="network"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const v = btn.dataset.value;
+      const was = btn.classList.contains('active');
+      btn.classList.toggle('active', !was);
+      rState.network = was ? rState.network.filter(x => x !== v) : [...rState.network, v];
+      updateReferralUI();
+    });
+  });
+
+  document.querySelectorAll('[data-rtoggle]').forEach(h => {
+    h.addEventListener('click', () => toggleRCard(h.dataset.rtoggle));
+    h.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleRCard(h.dataset.rtoggle); }
+    });
+  });
+
+  document.getElementById('rCopyBtn').addEventListener('click', copyReferralURL);
+  updateReferralUI();
+}

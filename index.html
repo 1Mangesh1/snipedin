@@ -82,8 +82,18 @@
     </div>
   </section>
 
+  <!-- ======================== TAB SWITCHER ======================== -->
+  <div class="tab-row">
+    <div class="container">
+      <div class="tab-switcher" role="tablist" aria-label="App section">
+        <button class="tab-btn tab-btn--active" id="tabJobs" role="tab" aria-selected="true" aria-controls="mainJobSearch">🎯 Job Search</button>
+        <button class="tab-btn" id="tabReferral" role="tab" aria-selected="false" aria-controls="mainReferral">👥 Referral Finder</button>
+      </div>
+    </div>
+  </div>
+
   <!-- ======================== MAIN ======================== -->
-  <main class="main-content">
+  <main class="main-content" id="mainJobSearch">
     <div class="container main-grid">
 
       <!-- ===== FILTERS PANEL ===== -->
@@ -341,6 +351,143 @@
 
     </div>
   </main>
+
+  <!-- ======================== REFERRAL FINDER ======================== -->
+  <section class="main-content" id="mainReferral" style="display:none" aria-labelledby="tabReferral">
+    <div class="container main-grid">
+
+      <!-- REFERRAL FILTERS PANEL -->
+      <div class="filters-panel" role="form" aria-label="Referral finder filters">
+
+        <!-- Company -->
+        <div class="filter-card" id="rcard-company">
+          <div class="filter-card-header" data-rtoggle="company" role="button" tabindex="0" aria-expanded="true" aria-controls="rbody-company">
+            <div class="filter-card-title">
+              <span class="filter-icon" aria-hidden="true">🏢</span>
+              <span>Company</span>
+              <span class="filter-summary" id="rsummary-company" aria-live="polite"></span>
+            </div>
+            <span class="filter-arrow" aria-hidden="true">▾</span>
+          </div>
+          <div class="filter-card-body" id="rbody-company">
+            <div class="input-group">
+              <label class="input-label" for="rCompany">Company Name</label>
+              <input type="text" id="rCompany" class="input-field" placeholder="e.g. Google, Zepto, Swiggy" autocomplete="off" spellcheck="false" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Role -->
+        <div class="filter-card" id="rcard-role">
+          <div class="filter-card-header" data-rtoggle="role" role="button" tabindex="0" aria-expanded="true" aria-controls="rbody-role">
+            <div class="filter-card-title">
+              <span class="filter-icon" aria-hidden="true">👤</span>
+              <span>Role / Title</span>
+              <span class="filter-summary" id="rsummary-role" aria-live="polite"></span>
+            </div>
+            <span class="filter-arrow" aria-hidden="true">▾</span>
+          </div>
+          <div class="filter-card-body" id="rbody-role">
+            <div class="input-group">
+              <label class="input-label" for="rRole">Job Title or Keyword</label>
+              <input type="text" id="rRole" class="input-field" placeholder="e.g. Software Engineer, Recruiter, EM" autocomplete="off" spellcheck="false" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Connection Degree -->
+        <div class="filter-card" id="rcard-network">
+          <div class="filter-card-header" data-rtoggle="network" role="button" tabindex="0" aria-expanded="true" aria-controls="rbody-network">
+            <div class="filter-card-title">
+              <span class="filter-icon" aria-hidden="true">🔗</span>
+              <span>Connection Degree</span>
+              <span class="filter-summary" id="rsummary-network" aria-live="polite"></span>
+            </div>
+            <span class="filter-arrow" aria-hidden="true">▾</span>
+          </div>
+          <div class="filter-card-body" id="rbody-network">
+            <div class="chip-group" role="group" aria-label="Connection degree (multi-select)">
+              <button class="chip chip-multi" data-rgroup="network" data-value="F">1st 🤝</button>
+              <button class="chip chip-multi" data-rgroup="network" data-value="S">2nd ⭐</button>
+              <button class="chip chip-multi" data-rgroup="network" data-value="O">3rd+ 🌐</button>
+            </div>
+            <p class="input-tip">💡 2nd degree = shared mutual connections — best for cold outreach</p>
+          </div>
+        </div>
+
+        <!-- Location -->
+        <div class="filter-card" id="rcard-location">
+          <div class="filter-card-header" data-rtoggle="location" role="button" tabindex="0" aria-expanded="true" aria-controls="rbody-location">
+            <div class="filter-card-title">
+              <span class="filter-icon" aria-hidden="true">📍</span>
+              <span>Location</span>
+              <span class="filter-summary" id="rsummary-location" aria-live="polite"></span>
+            </div>
+            <span class="filter-arrow" aria-hidden="true">▾</span>
+          </div>
+          <div class="filter-card-body" id="rbody-location">
+            <div class="input-group">
+              <label class="input-label" for="rLocation">City or Country</label>
+              <input type="text" id="rLocation" class="input-field" placeholder="e.g. Bangalore, Mumbai, India" autocomplete="off" />
+            </div>
+            <p class="input-tip">💡 Location is combined into the keyword search</p>
+          </div>
+        </div>
+
+      </div>
+      <!-- END REFERRAL FILTERS -->
+
+      <!-- REFERRAL PREVIEW PANEL -->
+      <div class="preview-panel">
+        <div class="preview-sticky">
+
+          <div class="referral-tip-card">
+            <p class="referral-tip-title">🧭 How Referral Finder works</p>
+            <ol class="referral-tip-list">
+              <li>Enter the <strong>company</strong> + <strong>role</strong> you're targeting</li>
+              <li>Pick <strong>2nd degree</strong> — shared mutual connections, much higher accept rate</li>
+              <li>Copy the URL → open LinkedIn → find the right person</li>
+              <li>Send connection request → after accepted, send a short personalized message</li>
+            </ol>
+          </div>
+
+          <div class="preview-card preview-card--url">
+            <div class="preview-card-header">
+              <span>🔗 Generated URL</span>
+              <span class="live-badge" aria-label="Live preview">LIVE</span>
+            </div>
+            <div class="url-display" id="rUrlDisplay" role="textbox" aria-readonly="true" aria-label="Generated LinkedIn people search URL">
+              <code id="rUrlText">https://www.linkedin.com/search/results/people/</code>
+            </div>
+            <div class="preview-actions">
+              <button class="btn-primary" id="rCopyBtn" aria-label="Copy URL to clipboard">
+                <span class="btn-icon" aria-hidden="true">📋</span>
+                <span id="rCopyBtnText">Copy URL</span>
+              </button>
+              <a href="https://www.linkedin.com/search/results/people/" class="btn-secondary" id="rOpenBtn" target="_blank" rel="noopener noreferrer" aria-label="Open people search on LinkedIn">
+                <span class="btn-icon" aria-hidden="true">🚀</span>
+                Open in LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <div class="stats-row" aria-label="Filter stats">
+            <div class="stat">
+              <span class="stat-num" id="rFilterCount" aria-live="polite">0</span>
+              <span class="stat-label">filters active</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num" id="rUrlLength" aria-live="polite">-</span>
+              <span class="stat-label">URL length</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- END REFERRAL PREVIEW PANEL -->
+
+    </div>
+  </section>
 
   <!-- ======================== FOOTER ======================== -->
   <footer class="footer">

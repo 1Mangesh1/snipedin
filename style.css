@@ -1365,3 +1365,92 @@ input {
 [data-theme="light"] .mobile-bar {
   background: rgba(248, 250, 252, 0.95);
 }
+
+/* ============================================================
+   TAB SWITCHER
+   ============================================================ */
+.tab-row {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+}
+
+.tab-switcher {
+  display: flex;
+  gap: 4px;
+  padding: 10px 0 0;
+}
+
+.tab-btn {
+  padding: 9px 22px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  border-radius: var(--r-sm) var(--r-sm) 0 0;
+  transition: color var(--t), background var(--t), border-color var(--t);
+  white-space: nowrap;
+}
+
+.tab-btn:hover {
+  color: var(--text);
+  background: rgba(255,255,255,0.04);
+}
+
+.tab-btn--active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  background: rgba(10,102,194,0.07);
+}
+
+[data-theme="light"] .tab-btn--active {
+  background: rgba(10,102,194,0.06);
+}
+
+[data-theme="light"] .tab-btn:hover {
+  background: rgba(0,0,0,0.04);
+}
+
+/* ============================================================
+   REFERRAL TIP CARD
+   ============================================================ */
+.referral-tip-card {
+  background: rgba(10,102,194,0.07);
+  border: 1px solid rgba(10,102,194,0.2);
+  border-radius: var(--r);
+  padding: 16px 18px;
+  margin-bottom: 16px;
+}
+
+.referral-tip-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin: 0 0 10px;
+}
+
+.referral-tip-list {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.8;
+}
+
+.referral-tip-list strong {
+  color: var(--accent-light, #5BA3E0);
+}
+
+[data-theme="light"] .referral-tip-card {
+  background: rgba(10,102,194,0.05);
+  border-color: rgba(10,102,194,0.15);
+}
+
+[data-theme="light"] .referral-tip-list strong {
+  color: var(--accent);
+}
