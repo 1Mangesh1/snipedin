@@ -84,7 +84,6 @@ open index.html
 
 PRs welcome! Ideas for future features:
 - Company name filter (requires LinkedIn company IDs)
-- Dark/light theme toggle
 - QR code generation for mobile sharing
 - Export/import template lists
 
