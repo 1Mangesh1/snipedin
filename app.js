@@ -778,9 +778,9 @@ function buildReferralURL() {
   const params = new URLSearchParams();
   if (parts.length) params.set('keywords', parts.join(' '));
   if (rState.network.length) params.set('network', JSON.stringify(rState.network));
+  params.set('origin', 'FACETED_SEARCH');
   const base = 'https://www.linkedin.com/search/results/people/';
-  const qs = params.toString();
-  return qs ? `${base}?${qs}` : base;
+  return `${base}?${params.toString()}`;
 }
 
 function updateReferralUI() {
