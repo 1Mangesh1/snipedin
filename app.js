@@ -620,12 +620,12 @@ function init() {
   });
 
   // Single-select chips (not multi, excluding salary which is wired by renderSalaryChips)
-  document.querySelectorAll('.chip:not(.chip-multi):not([data-group="salary"])').forEach(btn => {
+  document.querySelectorAll('.chip:not(.chip-multi):not([data-group="salary"]):not([data-rgroup])').forEach(btn => {
     btn.addEventListener('click', () => handleSingleChip(btn));
   });
 
-  // Multi-select chips
-  document.querySelectorAll('.chip-multi').forEach(btn => {
+  // Multi-select chips (exclude referral chips — handled by initReferral)
+  document.querySelectorAll('.chip-multi:not([data-rgroup])').forEach(btn => {
     btn.addEventListener('click', () => handleMultiChip(btn));
   });
 
