@@ -1,71 +1,87 @@
-# 🎯 SnipeDin - Hunt Fresh LinkedIn Jobs
+# SnipeDin
 
-> **Zero noise. Full control.** Build precision LinkedIn job search URLs in seconds.
+> Zero noise. Full control. Build precision LinkedIn job search URLs and find referrals in seconds.
 
-**Live App → [mangeshbide.tech/snipedin](https://mangeshbide.tech/snipedin) and  [1mangesh1.github.io/snipedin](https://1mangesh1.github.io/snipedin/)**
+**Live App** → [mangeshbide.tech/snipedin](https://mangeshbide.tech/snipedin) • [GitHub Pages](https://1mangesh1.github.io/snipedin/)
 
 ---
 
 ## What Is This?
 
-LinkedIn's job search is powerful - but its URL parameters are hard to craft by hand. **SnipeDin** gives you a beautiful dashboard to configure every filter visually, then generates the perfect LinkedIn URL instantly.
+LinkedIn's job search is powerful—but URL parameters are tedious to craft. **SnipeDin** provides two tools:
 
-Stop endlessly clicking through LinkedIn's UI. Build once, bookmark, share.
+1. **Job Search Builder** — Visually configure every filter (keywords, location, experience, salary, etc.) and instantly generate the perfect LinkedIn job search URL
+2. **Referral Finder** — Search for people at target companies by role, connection degree (1st/2nd/3rd+), and location to find referral opportunities
+
+Stop clicking through LinkedIn's UI. Build once, bookmark, share.
 
 ---
 
 ## Features
 
-| Feature | Details |
-|---|---|
-| 🔍 **Keywords + Location** | Full text search with location |
-| ⏱ **Time Posted** | Past Hour · Past 24h · Past Week · Past Month |
-| 📊 **Sort Order** | Most Recent or Most Relevant |
-| 🌍 **Work Mode** | Remote · Hybrid · On-site (multi-select) |
-| 💼 **Job Type** | Full-time · Part-time · Contract · Temporary · Internship · Volunteer (multi-select) |
-| 📈 **Experience Level** | Internship → Executive (multi-select) |
-| ⚡ **Easy Apply** | One-click toggle |
-| 💰 **Min Salary** | $40k – $200k+ |
-| 📋 **One-click Copy** | Instant clipboard copy |
-| 🚀 **Open Direct** | Jumps straight to LinkedIn results |
-| ⚡ **Quick Templates** | 10 built-in starter presets |
-| 💾 **Custom Templates** | Save & load your own named searches (localStorage) |
-| 📱 **Responsive** | Works beautifully on mobile too |
+### Job Search Builder
+- Keywords + location search with full text support
+- Time Posted: Past Hour, Past 24h, Past Week, Past Month
+- Sort by: Most Recent or Most Relevant
+- Work Mode: Remote, Hybrid, On-site (multi-select)
+- Job Type: Full-time, Part-time, Contract, Temporary, Internship, Volunteer (multi-select)
+- Experience Level: Internship through Executive (multi-select)
+- Easy Apply toggle
+- Minimum Salary with 6 currency options (USD, EUR, GBP, INR, CAD, AUD)
+- One-click copy to clipboard
+- Open directly in LinkedIn
+- 10 built-in quick templates
+- Save and load custom templates (localStorage)
+
+### Referral Finder
+- Search by company name and job title/role
+- Filter by connection degree (1st, 2nd, 3rd+ connections)
+- Location-based filtering
+- Live LinkedIn people search URL generation
+- Works seamlessly with your saved network
+
+### General
+- Minimal, distraction-free UI
+- Light and dark themes
+- Mobile responsive
+- No external dependencies
 
 ---
 
-## LinkedIn URL Parameters Used
+## LinkedIn URL Parameters
 
 | Filter | Parameter | Values |
 |---|---|---|
 | Keywords | `keywords` | any text |
 | Location | `location` | any text |
 | Time posted | `f_TPR` | `r3600` `r-` `r604800` `r2592000` |
-| Sort by | `sortBy` | `DD` (recent) `R` (relevant) |
+| Sort by | `sortBy` | `DD` (recent) • `R` (relevant) |
 | Work mode | `f_WT` | `1` `2` `3` (on-site, remote, hybrid) |
 | Job type | `f_JT` | `F` `P` `C` `T` `I` `V` |
 | Experience | `f_E` | `1`–`6` |
 | Easy Apply | `f_EA` | `true` |
-| Min salary | `f_SB2` | number |
+| Min salary | `f_SB2` | number (currency-dependent) |
+| **Referral people search** | `network` | `["F","S","O"]` (1st, 2nd, 3rd+) |
 
 ---
 
 ## Tech Stack
 
-- Pure **HTML5**
-- **CSS3** with custom properties (dark theme, responsive)
-- **Vanilla JavaScript** (ES2020, zero dependencies)
-- **localStorage** for persisting custom templates
-- Deployed via **GitHub Pages**
+- HTML5
+- CSS3 (custom properties, dark mode, responsive design)
+- Vanilla JavaScript (ES2020, zero dependencies)
+- localStorage for template persistence
+- GitHub Pages deployment
+- Fonts: Syne (display), DM Sans (body), JetBrains Mono (code)
 
 ---
 
-## Run Locally
+## Quick Start
 
 ```bash
 git clone https://github.com/1Mangesh1/snipedin.git
 cd snipedin
-# Open index.html in your browser - no build step needed!
+# Open index.html in your browser — no build step needed
 open index.html
 ```
 
@@ -73,19 +89,25 @@ open index.html
 
 ## Keyboard Shortcuts
 
-| Keys | Action |
+| Shortcut | Action |
 |---|---|
-| `⌘/Ctrl + K` | Focus keywords input |
-| `⌘/Ctrl + Shift + C` | Copy URL |
+| Cmd/Ctrl + K | Focus keywords input |
+| Cmd/Ctrl + Shift + C | Copy URL |
 
 ---
 
 ## Contributing
 
-PRs welcome! Ideas for future features:
-- Company name filter (requires LinkedIn company IDs)
+Contributions welcome. Potential future enhancements:
+- Company ID resolution for direct company profile searches
 - QR code generation for mobile sharing
-- Export/import template lists
+- Batch template export/import
+
+---
+
+## License
+
+MIT. See [`LICENSE`](./LICENSE) file.
 
 ---
 
@@ -95,4 +117,4 @@ SnipeDin is not affiliated with, endorsed by, or connected to LinkedIn Corporati
 
 ---
 
-<p align="center">Built with ❤️ for job hunters everywhere</p>
+Built for job hunters and career researchers.
